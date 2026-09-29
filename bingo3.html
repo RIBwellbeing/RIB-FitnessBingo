@@ -67,7 +67,7 @@ body{
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+    grid-template-columns:repeat(6,1fr);
     gap:10px;
     padding:20px;
 }
@@ -141,35 +141,35 @@ body{
 }
 
 .footer{
-    text-align:center;
-    padding:25px;
+width:100%;
+padding:30px 20px;
+text-align:center;
+border-top:1px solid #D7EAF8;
+margin-top:10px;
 }
 
 .progress{
-    color:#0067B1;
-    font-weight:700;
-    margin-bottom:12px;
+color:#0067B1;
+font-weight:700;
+font-size:18px;
+margin-bottom:15px;
 }
 
 .bar-wrap{
-    width:80%;
+    width:100%;
     max-width:600px;
-    margin:auto;
+    margin:0 auto 20px;
     background:#D9D9D6;
-    border-radius:10px;
-    height:8px;
+    border-radius:20px;
+    height:16px;
     overflow:hidden;
 }
 
 .bar{
-    height:100%;
     width:0%;
-    background:linear-gradient(
-        90deg,
-        #0067B1,
-        #298FC2
-    );
-    transition:.3s;
+    height:100%;
+    background:#0067B1;
+    transition:width 0.3s ease;
 }
 
 .reset-btn{
@@ -299,11 +299,6 @@ body{
     <span class="tile-text">Take the Stairs All Day</span>
 </div>
 
-<div class="tile bonus" onclick="tog(this)">
-    <i class="fa-solid fa-trophy tile-icon"></i>
-    <span class="tile-text">30×30 BONUS</span>
-</div>
-
 <div class="tile" onclick="tog(this)">
     <i class="fa-solid fa-shoe-prints tile-icon"></i>
     <span class="tile-text">Reach 10,000 Steps</span>
@@ -364,12 +359,42 @@ body{
     <span class="tile-text">Try a New Workout</span>
 </div>
 
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-person-swimming tile-icon"></i>
+    <span class="tile-text">Swim for 30 Minutes</span>
 </div>
-  
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-mountain tile-icon"></i>
+    <span class="tile-text">Complete a Hill Walk</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-route tile-icon"></i>
+    <span class="tile-text">Take the Long Route</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-person-running tile-icon"></i>
+    <span class="tile-text">Sprint for 5 Minutes</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-users tile-icon"></i>
+    <span class="tile-text">Join a Team Walk</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-dumbbell tile-icon"></i>
+    <span class="tile-text">Full Body Workout</span>
+</div>
+
+</div> 
+    
 <div class="footer">
 
 <div class="progress" id="prog">
-0 / 25 activities completed
+0 / 30 activities completed
 </div>
 
 <div class="bar-wrap">
@@ -430,7 +455,11 @@ function updateProgress(){
         ((completed / total) * 100) + "%";
 
     document.getElementById("banner").style.display =
-        completed === total ? "block" : "none";
+   completed === total ? "block" : "none";
+
+console.log("Completed:", completed);
+console.log("Total:", total);
+console.log("Percentage:", ((completed / total) * 100) + "%");
 }
 
 function resetAll(){
