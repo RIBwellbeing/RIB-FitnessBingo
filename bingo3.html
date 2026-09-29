@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIB 30×30 Fitness Challenge</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+        180deg,
+        #EAF4FC 0%,
+        #D7EAF8 100%
+    );
+    min-height:100vh;
+    padding:20px;
+}
+
+.card{
+    max-width:1200px;
+    margin:auto;
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 32px rgba(0,103,177,.15);
+}
+
+.header{
+    background:linear-gradient(90deg,#0067B1,#298FC2);
+    padding:25px;
+    text-align:center;
+}
+
+.logo{
+    max-width:350px;
+    width:100%;
+    height:auto;
+}
+
+.title-section{
+    text-align:center;
+    padding:25px;
+}
+
+.bingo-word{
+    font-size:48px;
+    font-weight:900;
+    color:#0067B1;
+    letter-spacing:2px;
+}
+
+.subtitle{
+    margin-top:8px;
+    color:#666;
+    font-size:14px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    padding:20px;
+}
+
+.tile{
+    position:relative;
+    background:#F8FAFC;
+    border:1px solid #0067B1;
+    border-radius:12px;
+
+    min-height:150px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:12px;
+    padding:15px;
+
+    text-align:center;
+    cursor:pointer;
+
+    transition:all .2s ease;
+}
+
+.tile:hover{
+    transform:translateY(-3px);
+    background:#EEF7FF;
+}
+
+.tile-icon{
+    font-size:34px;
+    color:#0067B1;
+}
+
+.tile-text{
+    font-size:14px;
+    line-height:1.4;
+    font-weight:600;
+    color:#2F3640;
+}
+
+.tile.completed{
+    background:#0067B1;
+    border-color:#0067B1;
+}
+
+.tile.completed .tile-icon,
+.tile.completed .tile-text{
+    color:white;
+}
+
+.tile.completed::after{
+    content:"✓";
+    position:absolute;
+    top:8px;
+    right:10px;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.tile.bonus{
+    background:linear-gradient(135deg,#0067B1,#298FC2);
+}
+
+.tile.bonus .tile-icon,
+.tile.bonus .tile-text{
+    color:white;
+}
+
+.footer{
+    text-align:center;
+    padding:25px;
+}
+
+.progress{
+    color:#0067B1;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.bar-wrap{
+    width:80%;
+    max-width:600px;
+    margin:auto;
+    background:#D9D9D6;
+    border-radius:10px;
+    height:8px;
+    overflow:hidden;
+}
+
+.bar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(
+        90deg,
+        #0067B1,
+        #298FC2
+    );
+    transition:.3s;
+}
+
+.reset-btn{
+    margin-top:18px;
+    background:#0067B1;
+    color:white;
+    border:none;
+    border-radius:25px;
+    padding:10px 25px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.reset-btn:hover{
+    background:#298FC2;
+}
+
+.banner{
+    display:none;
+    background:#0067B1;
+    color:white;
+    text-align:center;
+    padding:12px;
+    font-weight:700;
+}
+
+@media(max-width:900px){
+
+    .grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .bingo-word{
+        font-size:32px;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="card">
+
+<div class="header">
+    <img src="logo.png" alt="RIB Logo" class="logo">
+</div>
+
+<div id="banner" class="banner">
+🏆 30×30 FITNESS CHAMPION! 🏆
+</div>
+
+<div class="title-section">
+    <div class="bingo-word">30×30 FITNESS CHALLENGE</div>
+    <div class="subtitle">
+        Complete activities throughout the challenge and see how many squares you can tick off!
+    </div>
+</div>
+
+<div class="grid">
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-fire tile-icon"></i>
+    <span class="tile-text">Complete 25 Lunges</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-person-running tile-icon"></i>
+    <span class="tile-text">Run for 20 Minutes</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-phone tile-icon"></i>
+    <span class="tile-text">Walk While on a Call</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-shoe-prints tile-icon"></i>
+    <span class="tile-text">Reach 8,000 Steps</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-sun tile-icon"></i>
+    <span class="tile-text">Take a Morning Walk</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-heart tile-icon"></i>
+    <span class="tile-text">Favourite Workout</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-droplet tile-icon"></i>
+    <span class="tile-text">Drink 2 Litres of Water</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-medal tile-icon"></i>
+    <span class="tile-text">Complete 20 Push-Ups</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-child-reaching tile-icon"></i>
+    <span class="tile-text">Stretch for 10 Minutes</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-clock tile-icon"></i>
+    <span class="tile-text">Move Every Hour</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-person-walking tile-icon"></i>
+    <span class="tile-text">Walking Meeting</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-building tile-icon"></i>
+    <span class="tile-text">Take the Stairs All Day</span>
+</div>
+
+<div class="tile bonus" onclick="tog(this)">
+    <i class="fa-solid fa-trophy tile-icon"></i>
+    <span class="tile-text">30×30 BONUS</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-shoe-prints tile-icon"></i>
+    <span class="tile-text">Reach 10,000 Steps</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-heart-pulse tile-icon"></i>
+    <span class="tile-text">Join a Fitness Class</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-spa tile-icon"></i>
+    <span class="tile-text">Complete a Yoga Session</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-dumbbell tile-icon"></i>
+    <span class="tile-text">Complete 30 Squats</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-stopwatch tile-icon"></i>
+    <span class="tile-text">30-Second Plank</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-person-hiking tile-icon"></i>
+    <span class="tile-text">Lunchtime Walk</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-bicycle tile-icon"></i>
+    <span class="tile-text">30-Minute Cycle Ride</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-chair tile-icon"></i>
+    <span class="tile-text">60-Second Wall Sit</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-bolt tile-icon"></i>
+    <span class="tile-text">20 Jumping Jacks</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-moon tile-icon"></i>
+    <span class="tile-text">Take an Evening Walk</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-person-walking tile-icon"></i>
+    <span class="tile-text">45-Minute Walk</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-star tile-icon"></i>
+    <span class="tile-text">Try a New Workout</span>
+</div>
+
+</div>
+  
+<div class="footer">
+
+<div class="progress" id="prog">
+0 / 25 activities completed
+</div>
+
+<div class="bar-wrap">
+    <div class="bar" id="bar"></div>
+</div>
+
+<button class="reset-btn" onclick="resetAll()">
+Reset Board
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const STORAGE_KEY = "ribFitnessBingo";
+
+function saveState() {
+
+    const states = [];
+
+    document.querySelectorAll(".tile").forEach((tile,index)=>{
+        states[index] = tile.classList.contains("completed");
+    });
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(states));
+}
+
+function loadState() {
+
+    const states = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+    if(!states) return;
+
+    document.querySelectorAll(".tile").forEach((tile,index)=>{
+        if(states[index]){
+            tile.classList.add("completed");
+        }
+    });
+}
+
+function tog(tile){
+    tile.classList.toggle("completed");
+    saveState();
+    updateProgress();
+}
+
+function updateProgress(){
+
+    const total = document.querySelectorAll(".tile").length;
+    const completed = document.querySelectorAll(".tile.completed").length;
+
+    document.getElementById("prog").textContent =
+        completed + " / " + total + " activities completed";
+
+    document.getElementById("bar").style.width =
+        ((completed / total) * 100) + "%";
+
+    document.getElementById("banner").style.display =
+        completed === total ? "block" : "none";
+}
+
+function resetAll(){
+
+    document.querySelectorAll(".tile").forEach(tile=>{
+        tile.classList.remove("completed");
+    });
+
+    localStorage.removeItem(STORAGE_KEY);
+    updateProgress();
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+    loadState();
+    updateProgress();
+});
+
+</script>
+
+</body>
+</html>
