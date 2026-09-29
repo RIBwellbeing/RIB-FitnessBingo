@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RIB Fitness Bingo</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#F5F7FA;
+    padding:30px;
+    display:flex;
+    justify-content:center;
+}
+
+.container{
+    width:100%;
+    max-width:850px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,103,177,0.15);
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(90deg,#0067B1,#2A8CCF);
+    text-align:center;
+    padding:25px;
+}
+
+.header img{
+    height:65px;
+}
+
+/* TITLE */
+
+.title{
+    text-align:center;
+    padding:30px 25px;
+}
+
+.title h1{
+    color:#0067B1;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.title p{
+    color:#555;
+    font-size:16px;
+}
+
+/* HOW TO PLAY */
+
+.info-box{
+    margin:0 25px 25px;
+    padding:20px;
+    background:#E8F3FB;
+    border-radius:12px;
+}
+
+.info-box h2{
+    color:#0067B1;
+    margin-bottom:12px;
+}
+
+.info-box ul{
+    padding-left:20px;
+    color:#333;
+    line-height:1.8;
+}
+
+/* SECTION TITLES */
+
+.section{
+    padding:0 25px 25px;
+}
+
+.section-title{
+    color:#0067B1;
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+/* BUTTONS */
+
+.menu-button{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
+    color:#0067B1;
+    text-decoration:none;
+    padding:18px 20px;
+    margin-bottom:12px;
+    border:2px solid #D7E8F5;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:600;
+    transition:all .2s ease;
+}
+
+.menu-button:hover{
+    background:#E8F3FB;
+    transform:translateY(-2px);
+}
+
+.arrow{
+    font-size:22px;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:20px;
+    color:#666;
+    background:#F5F7FA;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="header">
+    <img src="logo.png" class="logo" alt="Logo">
+</div>
+
+<div class="title">
+    <h1>Fitness Bingo</h1>
+    <p>Connect • Reflect • Thrive</p>
+</div>
+
+<div class="info-box">
+    <h2>How to Play</h2>
+
+    <ul>
+        <li>Choose one of the bingo cards below.</li>
+        <li>Complete activities throughout the month.</li>
+        <li>Mark off tiles as you complete them.</li>
+        <li>Use the resources section for activities requiring additional materials.</li>
+        <li>Complete a row and share a screenshot to help plant a tree.</li>
+    </ul>
+</div>
+
+<div class="section">
+
+    <div class="section-title">
+        Bingo Cards
+    </div>
+
+    <a href="bingo1.html" class="menu-button">
+        <span>Wellbeing Bingo 1</span>
+        <span class="arrow">➜</span>
+    </a>
+
+    <a href="bingo2.html" class="menu-button">
+        <span>Wellbeing Bingo 2</span>
+        <span class="arrow">➜</span>
+    </a>
+
+    <a href="bingo3.html" class="menu-button">
+        <span>Wellbeing Bingo 3</span>
+        <span class="arrow">➜</span>
+    </a>
+
+</div>
+
+<div class="footer">
+    RIB Wellbeing Network
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
