@@ -28,7 +28,6 @@ justify-content:center;
 align-items:flex-start;
 padding:20px;
 }
-}
 
 .card{
 background:white;
@@ -46,7 +45,6 @@ display:flex;
 justify-content:center;
 align-items:center;
 padding:25px 20px;
-}
 }
 
 .logo{
@@ -139,8 +137,10 @@ position:absolute;
 inset:0;
 background:rgba(0,103,177,.92);
 border-radius:10px;
+  flex-direction: column;
 justify-content:center;
 align-items:center;
+  animation: popIn .24s cubic-bezier(.34,1.56,.64,1);
 }
 
 .overlay i{
