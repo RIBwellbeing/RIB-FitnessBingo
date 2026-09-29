@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RIB 30×30 Fitness Challenge</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
 
 *{
@@ -14,34 +16,29 @@
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:linear-gradient(
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
         180deg,
         #EAF4FC 0%,
         #D7EAF8 100%
     );
     min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
     padding:20px;
 }
 
 .card{
+    max-width:1200px;
+    margin:auto;
     background:white;
-    max-width:850px;
-    width:100%;
-    border-radius:16px;
+    border-radius:18px;
     overflow:hidden;
-    box-shadow:0 8px 32px rgba(0,103,177,.18);
+    box-shadow:0 8px 32px rgba(0,103,177,.15);
 }
 
 .header{
     background:linear-gradient(90deg,#0067B1,#298FC2);
-    display:flex;
-    justify-content:center;
-    align-items:center;
     padding:25px;
+    text-align:center;
 }
 
 .logo{
@@ -52,36 +49,27 @@ body{
 
 .title-section{
     text-align:center;
-    padding:25px 20px;
+    padding:25px;
 }
 
 .bingo-word{
-    font-size:3rem;
+    font-size:48px;
     font-weight:900;
     color:#0067B1;
     letter-spacing:2px;
 }
 
 .subtitle{
-    margin-top:10px;
+    margin-top:8px;
     color:#666;
     font-size:14px;
-}
-
-.bingo-banner{
-    display:none;
-    background:#0067B1;
-    color:white;
-    text-align:center;
-    padding:12px;
-    font-weight:700;
 }
 
 .grid{
     display:grid;
     grid-template-columns:repeat(5,1fr);
     gap:10px;
-    padding:15px;
+    padding:20px;
 }
 
 .tile{
@@ -89,28 +77,38 @@ body{
     background:#F8FAFC;
     border:1px solid #0067B1;
     border-radius:12px;
-    min-height:120px;
-    padding:12px;
+
+    min-height:150px;
 
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center;
 
+    gap:12px;
+    padding:15px;
+
+    text-align:center;
     cursor:pointer;
+
     transition:all .2s ease;
 }
 
 .tile:hover{
+    transform:translateY(-3px);
     background:#EEF7FF;
-    transform:translateY(-2px);
+}
+
+.tile-icon{
+    font-size:34px;
+    color:#0067B1;
 }
 
 .tile-text{
     font-size:14px;
-    font-weight:600;
-    color:#363D42;
     line-height:1.4;
+    font-weight:600;
+    color:#2F3640;
 }
 
 .tile.completed{
@@ -118,6 +116,7 @@ body{
     border-color:#0067B1;
 }
 
+.tile.completed .tile-icon,
 .tile.completed .tile-text{
     color:white;
 }
@@ -128,7 +127,7 @@ body{
     top:8px;
     right:10px;
     color:white;
-    font-size:20px;
+    font-size:22px;
     font-weight:bold;
 }
 
@@ -136,44 +135,50 @@ body{
     background:linear-gradient(135deg,#0067B1,#298FC2);
 }
 
+.tile.bonus .tile-icon,
 .tile.bonus .tile-text{
     color:white;
-    font-weight:700;
 }
 
 .footer{
-    padding:20px;
     text-align:center;
+    padding:25px;
 }
 
 .progress{
-    font-weight:700;
     color:#0067B1;
-    margin-bottom:10px;
+    font-weight:700;
+    margin-bottom:12px;
 }
 
 .bar-wrap{
     width:80%;
-    margin:0 auto 15px;
+    max-width:600px;
+    margin:auto;
     background:#D9D9D6;
-    height:8px;
     border-radius:10px;
+    height:8px;
     overflow:hidden;
 }
 
 .bar{
     height:100%;
     width:0%;
-    background:linear-gradient(90deg,#0067B1,#298FC2);
-    transition:width .3s ease;
+    background:linear-gradient(
+        90deg,
+        #0067B1,
+        #298FC2
+    );
+    transition:.3s;
 }
 
 .reset-btn{
+    margin-top:18px;
     background:#0067B1;
     color:white;
     border:none;
-    padding:10px 25px;
     border-radius:25px;
+    padding:10px 25px;
     cursor:pointer;
     font-weight:700;
 }
@@ -182,14 +187,31 @@ body{
     background:#298FC2;
 }
 
-@media(max-width:768px){
+.banner{
+    display:none;
+    background:#0067B1;
+    color:white;
+    text-align:center;
+    padding:12px;
+    font-weight:700;
+}
+
+@media(max-width:900px){
+
+    .grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:700px){
 
     .grid{
         grid-template-columns:repeat(2,1fr);
     }
 
     .bingo-word{
-        font-size:2rem;
+        font-size:32px;
     }
 
 }
@@ -200,70 +222,165 @@ body{
 
 <div class="card">
 
-    <div class="header">
-        <img src="logo.png" class="logo" alt="RIB Logo">
+<div class="header">
+    <img src="logo.png" alt="RIB Logo" class="logo">
+</div>
+
+<div id="banner" class="banner">
+🏆 30×30 FITNESS CHAMPION! 🏆
+</div>
+
+<div class="title-section">
+    <div class="bingo-word">30×30 FITNESS CHALLENGE</div>
+    <div class="subtitle">
+        Complete activities throughout the challenge and see how many squares you can tick off!
     </div>
+</div>
 
-    <div id="bingoBanner" class="bingo-banner">
-        🏆 30×30 FITNESS CHAMPION! 🏆
-    </div>
+<div class="grid">
 
-    <div class="title-section">
-        <div class="bingo-word">30×30 FITNESS CHALLENGE</div>
-        <div class="subtitle">
-            Complete activities throughout the challenge and see how many squares you can tick off!
-        </div>
-    </div>
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-person-walking tile-icon"></i>
+<span class="tile-text">30-Minute Walk</span>
+</div>
 
-    <div class="grid">
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-shoe-prints tile-icon"></i>
+<span class="tile-text">Reach 8,000 Steps</span>
+</div>
 
-        <div class="tile" onclick="tog(this)"><span class="tile-text">30-Minute Walk</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Reach 8,000 Steps</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">30-Minute Gym Session</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Take the Stairs All Day</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Walking Meeting</span></div>
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-dumbbell tile-icon"></i>
+<span class="tile-text">30-Minute Gym Session</span>
+</div>
 
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Complete 30 Squats</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">10-Minute Stretch Session</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Drink 2 Litres of Water</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Lunchtime Walk</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">30-Minute Cycle Ride</span></div>
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-building tile-icon"></i>
+<span class="tile-text">Take the Stairs All Day</span>
+</div>
 
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Complete 20 Lunges</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">30-Second Plank</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Move Every Hour</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Try a New Workout</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Take a Morning Walk</span></div>
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-person-walking tile-icon"></i>
+<span class="tile-text">Walking Meeting</span>
+</div>
 
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Take an Evening Walk</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Complete 20 Push-Ups</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Join a Team Walk</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">30 Minutes of Dancing</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Complete a Yoga Session</span></div>
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-dumbbell tile-icon"></i>
+<span class="tile-text">Complete 30 Squats</span>
+</div>
 
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Reach 10,000 Steps</span></div>
-        <div class="tile bonus" onclick="tog(this)"><span class="tile-text">30×30 BONUS</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Join a Fitness Class</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">30-Minute Run or Jog</span></div>
-        <div class="tile" onclick="tog(this)"><span class="tile-text">Complete Your Favourite Workout</span></div>
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-child-reaching tile-icon"></i>
+<span class="tile-text">10-Minute Stretch Session</span>
+</div>
 
-    </div>
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-droplet tile-icon"></i>
+<span class="tile-text">Drink 2 Litres of Water</span>
+</div>
 
-    <div class="footer">
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-person-hiking tile-icon"></i>
+<span class="tile-text">Lunchtime Walk</span>
+</div>
 
-        <div class="progress" id="prog">
-            0 / 25 activities completed
-        </div>
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-bicycle tile-icon"></i>
+<span class="tile-text">30-Minute Cycle Ride</span>
+</div>
 
-        <div class="bar-wrap">
-            <div class="bar" id="bar"></div>
-        </div>
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-fire tile-icon"></i>
+<span class="tile-text">Complete 20 Lunges</span>
+</div>
 
-        <button class="reset-btn" onclick="resetAll()">
-            Reset Board
-        </button>
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-stopwatch tile-icon"></i>
+<span class="tile-text">30-Second Plank</span>
+</div>
 
-    </div>
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-clock tile-icon"></i>
+<span class="tile-text">Move Every Hour</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-star tile-icon"></i>
+<span class="tile-text">Try a New Workout</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-sun tile-icon"></i>
+<span class="tile-text">Take a Morning Walk</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-moon tile-icon"></i>
+<span class="tile-text">Take an Evening Walk</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-medal tile-icon"></i>
+<span class="tile-text">Complete 20 Push-Ups</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-users tile-icon"></i>
+<span class="tile-text">Join a Team Walk</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-music tile-icon"></i>
+<span class="tile-text">30 Minutes of Dancing</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-spa tile-icon"></i>
+<span class="tile-text">Complete a Yoga Session</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-shoe-prints tile-icon"></i>
+<span class="tile-text">Reach 10,000 Steps</span>
+</div>
+
+<div class="tile bonus" onclick="tog(this)">
+<i class="fa-solid fa-trophy tile-icon"></i>
+<span class="tile-text">30×30 BONUS</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-heart-pulse tile-icon"></i>
+<span class="tile-text">Join a Fitness Class</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-person-running tile-icon"></i>
+<span class="tile-text">30-Minute Run or Jog</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+<i class="fa-solid fa-heart tile-icon"></i>
+<span class="tile-text">Favourite Workout</span>
+</div>
+
+</div>
+
+<div class="footer">
+
+<div class="progress" id="prog">
+0 / 25 activities completed
+</div>
+
+<div class="bar-wrap">
+    <div class="bar" id="bar"></div>
+</div>
+
+<button class="reset-btn" onclick="resetAll()">
+Reset Board
+</button>
+
+</div>
 
 </div>
 
@@ -306,14 +423,13 @@ function updateProgress(){
     const total = document.querySelectorAll(".tile").length;
     const completed = document.querySelectorAll(".tile.completed").length;
 
-    const pct = (completed / total) * 100;
-
-    document.getElementById("bar").style.width = pct + "%";
-
     document.getElementById("prog").textContent =
-        `${completed} / ${total} activities completed`;
+        completed + " / " + total + " activities completed";
 
-    document.getElementById("bingoBanner").style.display =
+    document.getElementById("bar").style.width =
+        ((completed / total) * 100) + "%";
+
+    document.getElementById("banner").style.display =
         completed === total ? "block" : "none";
 }
 
