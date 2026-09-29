@@ -156,24 +156,20 @@ margin-bottom:15px;
 }
 
 .bar-wrap{
-width:100%;
-max-width:600px;
-margin:0 auto 20px;
-background:#D9D9D6;
-border-radius:20px;
-height:16px;
-overflow:hidden;
+    width:100%;
+    max-width:600px;
+    margin:0 auto 20px;
+    background:#D9D9D6;
+    border-radius:20px;
+    height:16px;
+    overflow:hidden;
 }
- 
+
 .bar{
-height:100%;
-width:0%;
-background:linear-gradient(
-90deg,
-#0067B1,
-#298FC2
-);
-transition:.3s;
+    width:0%;
+    height:100%;
+    background:#0067B1;
+    transition:width 0.3s ease;
 }
 
 .reset-btn{
@@ -460,6 +456,10 @@ function updateProgress(){
 
     document.getElementById("banner").style.display =
         completed === total ? "block" : "none";
+   
+    console.log("Completed:", completed);
+console.log("Total:", total);
+console.log("Percentage:", ((completed / total) * 100) + "%");
 }
 
 function resetAll(){
