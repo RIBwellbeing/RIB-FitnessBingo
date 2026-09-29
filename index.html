@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>30×30 Fitness Challenge</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,6 +19,7 @@
 body{
     font-family:Arial,sans-serif;
     background:linear-gradient(180deg,#EAF4FC 0%,#D7EAF8 100%);
+    min-height:100vh;
     padding:20px;
 }
 
@@ -33,11 +35,13 @@ body{
 .header{
     background:linear-gradient(90deg,#0067B1,#298FC2);
     text-align:center;
-    padding:20px;
+    padding:25px;
 }
 
 .logo{
-    max-width:220px;
+    max-width:250px;
+    width:100%;
+    height:auto;
 }
 
 .hero{
@@ -54,6 +58,7 @@ body{
     border-radius:30px;
     margin-bottom:20px;
     font-size:14px;
+    font-weight:600;
 }
 
 .hero h1{
@@ -64,7 +69,7 @@ body{
 .hero-tagline{
     font-size:24px;
     font-weight:600;
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
 .hero p{
@@ -78,18 +83,18 @@ body{
     display:flex;
     justify-content:center;
     gap:25px;
-    padding:30px 20px;
+    padding:30px 25px;
     flex-wrap:wrap;
 }
 
 .stat{
     background:white;
     border:1px solid #D7EAF8;
-    padding:20px;
     border-radius:15px;
-    min-width:140px;
+    padding:20px;
+    min-width:150px;
     text-align:center;
-    box-shadow:0 3px 8px rgba(0,0,0,.05);
+    box-shadow:0 4px 10px rgba(0,0,0,.05);
 }
 
 .stat strong{
@@ -125,7 +130,11 @@ body{
     background:#F3F8FC;
     border-radius:12px;
     padding:20px;
-    line-height:1.8;
+}
+
+.how-to-play ul{
+    padding-left:20px;
+    line-height:1.9;
 }
 
 .bingo-grid{
@@ -138,35 +147,43 @@ body{
 .bingo-card{
     text-decoration:none;
     color:inherit;
+
     background:white;
     border:2px solid #D7EAF8;
-    border-radius:15px;
-    padding:20px;
-    transition:.2s;
+    border-radius:16px;
+
+    padding:24px;
+
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:18px;
+
+    transition:all .2s ease;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.04);
 }
 
 .bingo-card:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
     border-color:#0067B1;
-    box-shadow:0 8px 20px rgba(0,103,177,.15);
+    box-shadow:0 10px 20px rgba(0,103,177,.18);
 }
 
 .card-icon{
-    font-size:36px;
+    font-size:42px;
     color:#0067B1;
+    min-width:50px;
 }
 
 .card-content h3{
     color:#0067B1;
-    margin-bottom:5px;
+    margin-bottom:6px;
 }
 
 .card-content p{
     color:#666;
     font-size:14px;
+    line-height:1.4;
 }
 
 .footer{
@@ -217,8 +234,8 @@ body{
 
         <p>
             Commit to 30 minutes of movement every day for 30 days.
-            Choose a Fitness Bingo card, complete activities throughout the challenge,
-            and see how many squares you can tick off.
+            Choose a Fitness Bingo card, complete activities throughout
+            the challenge, and see how many squares you can tick off.
         </p>
 
     </div>
@@ -255,7 +272,7 @@ body{
                 <li>Commit to 30 minutes of movement every day for 30 days.</li>
                 <li>Choose one of the four Fitness Bingo cards below.</li>
                 <li>Tick off activities as you complete them.</li>
-                <li>Share photos and updates with colleagues throughout the challenge.</li>
+                <li>Share your progress with colleagues throughout the challenge.</li>
                 <li>Complete a row, column or diagonal to earn a bonus prize draw entry.</li>
                 <li>Complete the entire card to become the next 30×30 Champion! 🏆</li>
             </ul>
@@ -269,35 +286,32 @@ body{
 
         <div class="bingo-grid">
 
-            bingo1.html
+            <a href="bingo1.html" class="bingo-card">
                 <i class="fa-solid fa-person-running card-icon"></i>
                 <div class="card-content">
-                    <h3>Bingo Card 1</h3>
-                </p>
+                    <h3>Card 1</h3>
                 </div>
             </a>
 
-            bingo2.html
+            <a href="bingo2.html" class="bingo-card">
                 <i class="fa-solid fa-bicycle card-icon"></i>
                 <div class="card-content">
-                    <h3>Bingo Card 2</h3>
-                </p>
+                    <h3>Card 2</h3>
                 </div>
             </a>
 
-            bingo3.html
+            <a href="bingo3.html" class="bingo-card">
                 <i class="fa-solid fa-dumbbell card-icon"></i>
                 <div class="card-content">
-                       <h3>Bingo Card 3</h3>
-                </p>
+                    <h3>Card 3</h3>
                 </div>
             </a>
 
-            bingo-d.html
+            bingo4.html
                 <i class="fa-solid fa-fire card-icon"></i>
                 <div class="card-content">
-                       <h3>Bingo Card 4</h3>
-                </p>
+                    <h3>Card 4</h3>
+                    
                 </div>
             </a>
 
