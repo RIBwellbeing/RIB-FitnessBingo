@@ -67,7 +67,7 @@ body{
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+    grid-template-columns:repeat(6,1fr);
     gap:10px;
     padding:20px;
 }
@@ -141,35 +141,35 @@ body{
 }
 
 .footer{
-    text-align:center;
-    padding:25px;
+width:100%;
+padding:30px 20px;
+text-align:center;
+border-top:1px solid #D7EAF8;
+margin-top:10px;
 }
 
 .progress{
-    color:#0067B1;
-    font-weight:700;
-    margin-bottom:12px;
+color:#0067B1;
+font-weight:700;
+font-size:18px;
+margin-bottom:15px;
 }
 
 .bar-wrap{
-    width:80%;
+    width:100%;
     max-width:600px;
-    margin:auto;
+    margin:0 auto 20px;
     background:#D9D9D6;
-    border-radius:10px;
-    height:8px;
+    border-radius:20px;
+    height:16px;
     overflow:hidden;
 }
 
 .bar{
-    height:100%;
     width:0%;
-    background:linear-gradient(
-        90deg,
-        #0067B1,
-        #298FC2
-    );
-    transition:.3s;
+    height:100%;
+    background:#0067B1;
+    transition:width 0.3s ease;
 }
 
 .reset-btn{
@@ -240,68 +240,8 @@ body{
 <div class="grid">
 
 <div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-fire tile-icon"></i>
-    <span class="tile-text">Complete 25 Lunges</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-person-running tile-icon"></i>
-    <span class="tile-text">Run for 20 Minutes</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-phone tile-icon"></i>
-    <span class="tile-text">Walk While on a Call</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-shoe-prints tile-icon"></i>
-    <span class="tile-text">Reach 8,000 Steps</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-sun tile-icon"></i>
-    <span class="tile-text">Take a Morning Walk</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-heart tile-icon"></i>
-    <span class="tile-text">Favourite Workout</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-droplet tile-icon"></i>
-    <span class="tile-text">Drink 2 Litres of Water</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-medal tile-icon"></i>
-    <span class="tile-text">Complete 20 Push-Ups</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-child-reaching tile-icon"></i>
-    <span class="tile-text">Stretch for 10 Minutes</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-clock tile-icon"></i>
-    <span class="tile-text">Move Every Hour</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
     <i class="fa-solid fa-person-walking tile-icon"></i>
-    <span class="tile-text">Walking Meeting</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-building tile-icon"></i>
-    <span class="tile-text">Take the Stairs All Day</span>
-</div>
-
-<div class="tile bonus" onclick="tog(this)">
-    <i class="fa-solid fa-trophy tile-icon"></i>
-    <span class="tile-text">30×30 BONUS</span>
+    <span class="tile-text">60-Minute Walk</span>
 </div>
 
 <div class="tile" onclick="tog(this)">
@@ -310,23 +250,38 @@ body{
 </div>
 
 <div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-heart-pulse tile-icon"></i>
-    <span class="tile-text">Join a Fitness Class</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-spa tile-icon"></i>
-    <span class="tile-text">Complete a Yoga Session</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
     <i class="fa-solid fa-dumbbell tile-icon"></i>
-    <span class="tile-text">Complete 30 Squats</span>
+    <span class="tile-text">Complete 50 Squats</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-building tile-icon"></i>
+    <span class="tile-text">Take the Stairs All Day</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-clock tile-icon"></i>
+    <span class="tile-text">Move Every Hour</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-fire tile-icon"></i>
+    <span class="tile-text">Complete 30 Lunges</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-medal tile-icon"></i>
+    <span class="tile-text">Complete 25 Push-Ups</span>
 </div>
 
 <div class="tile" onclick="tog(this)">
     <i class="fa-solid fa-stopwatch tile-icon"></i>
-    <span class="tile-text">30-Second Plank</span>
+    <span class="tile-text">1-Minute Plank</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-droplet tile-icon"></i>
+    <span class="tile-text">Drink 2 Litres of Water</span>
 </div>
 
 <div class="tile" onclick="tog(this)">
@@ -336,27 +291,72 @@ body{
 
 <div class="tile" onclick="tog(this)">
     <i class="fa-solid fa-bicycle tile-icon"></i>
-    <span class="tile-text">30-Minute Cycle Ride</span>
+    <span class="tile-text">45-Minute Cycle Ride</span>
 </div>
 
 <div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-chair tile-icon"></i>
-    <span class="tile-text">60-Second Wall Sit</span>
+    <i class="fa-solid fa-heart-pulse tile-icon"></i>
+    <span class="tile-text">Join a Fitness Class</span>
 </div>
 
 <div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-bolt tile-icon"></i>
-    <span class="tile-text">20 Jumping Jacks</span>
-</div>
-
-<div class="tile" onclick="tog(this)">
-    <i class="fa-solid fa-moon tile-icon"></i>
-    <span class="tile-text">Take an Evening Walk</span>
+    <i class="fa-solid fa-person-running tile-icon"></i>
+    <span class="tile-text">30-Minute Run</span>
 </div>
 
 <div class="tile" onclick="tog(this)">
     <i class="fa-solid fa-person-walking tile-icon"></i>
-    <span class="tile-text">45-Minute Walk</span>
+    <span class="tile-text">Walking Meeting</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-child-reaching tile-icon"></i>
+    <span class="tile-text">15-Minute Stretch</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-music tile-icon"></i>
+    <span class="tile-text">Dance for 30 Minutes</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-spa tile-icon"></i>
+    <span class="tile-text">Complete Yoga Session</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-sun tile-icon"></i>
+    <span class="tile-text">Morning Walk</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-moon tile-icon"></i>
+    <span class="tile-text">Evening Walk</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-route tile-icon"></i>
+    <span class="tile-text">Take the Long Route</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-phone tile-icon"></i>
+    <span class="tile-text">Walk While on a Call</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-users tile-icon"></i>
+    <span class="tile-text">Join a Team Walk</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-chair tile-icon"></i>
+    <span class="tile-text">90-Second Wall Sit</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-bolt tile-icon"></i>
+    <span class="tile-text">30 Jumping Jacks</span>
 </div>
 
 <div class="tile" onclick="tog(this)">
@@ -364,12 +364,36 @@ body{
     <span class="tile-text">Try a New Workout</span>
 </div>
 
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-heart tile-icon"></i>
+    <span class="tile-text">Favourite Workout</span>
 </div>
 
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-shoe-prints tile-icon"></i>
+    <span class="tile-text">Reach 12,000 Steps</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-dumbbell tile-icon"></i>
+    <span class="tile-text">Full Body Workout</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-person-swimming tile-icon"></i>
+    <span class="tile-text">Swim for 30 Minutes</span>
+</div>
+
+<div class="tile" onclick="tog(this)">
+    <i class="fa-solid fa-mountain tile-icon"></i>
+    <span class="tile-text">Complete a Hill Walk</span>
+</div>
+
+</div>
 <div class="footer">
 
 <div class="progress" id="prog">
-0 / 25 activities completed
+0 / 30 activities completed
 </div>
 
 <div class="bar-wrap">
@@ -430,7 +454,11 @@ function updateProgress(){
         ((completed / total) * 100) + "%";
 
     document.getElementById("banner").style.display =
-        completed === total ? "block" : "none";
+   completed === total ? "block" : "none";
+
+console.log("Completed:", completed);
+console.log("Total:", total);
+console.log("Percentage:", ((completed / total) * 100) + "%");
 }
 
 function resetAll(){
